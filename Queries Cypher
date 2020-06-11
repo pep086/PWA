@@ -1,0 +1,37 @@
+CREATE (a:Person { name: 'Fernando', eyeColor: 'blanco' , altura: '1.80' })
+
+CREATE (a:Curso { name: '4', comision: 'A', cantidad: '25' })
+
+GET Cursos
+MATCH (curso)
+RETURN curso.name, curso.cantidad, curso.comision
+
+trear todo,
+MATCH (n)
+RETURN (n)
+
+crear indices: 
+CREATE INDEX FOR (n:Person) ON (n.DNI)
+
+
+Crear relaciones
+MATCH (a:Person),(b:Curso)
+WHERE a.name = 'pelado' AND b.num = '2'
+CREATE (a)-[r:CURSA_EN]->(b)
+RETURN type(r)
+
+
+delete nodes con relaciones
+MATCH (n { name: 'Andy' })
+DETACH DELETE n
+
+delete con ID interno de NEO:
+MATCH (n) where ID(n)=10
+OPTIONAL MATCH (p)-[r]-() //drops p's relations
+DELETE r,p
+
+delete directo re villero
+MATCH (n) where id(n) = xx DETACH DELETE n
+
+delete relations directo
+MATCH ()-[r]-() WHERE id(r)=49 DELETE r
